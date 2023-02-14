@@ -1,0 +1,8 @@
+.mainModule {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 20px 20px;
+  align-items: center;
+}

@@ -1,0 +1,14 @@
+.contact {
+  font-size: 18px;
+  line-height: 1.33;
+}
+
+.number {
+  font-size: 16px;
+}
+
+.listItem {
+  display: inline-flex;
+  gap: 20px;
+  justify-content: space-between;
+}
