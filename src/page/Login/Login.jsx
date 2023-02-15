@@ -1,4 +1,4 @@
-import { LoginForm } from 'components/LoginForm/LoginForm';
+import { LoginForm } from '../../components/LoginForm/LoginForm';
 import { Avatar, Box, Grid, Paper, Typography } from '@mui/material';
 
 const Login = () => {

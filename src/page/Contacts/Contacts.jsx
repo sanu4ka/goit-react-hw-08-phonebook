@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import ContactList from '../../components/ContactList/ContactList';
 import { fetchContacts } from '../../redux/contactsOperation';
 import { useEffect } from 'react';
-import Filter from 'components/Filter/Filter';
+import Filter from '../../components/Filter/Filter';
 import { isContactsLoading, getContacts } from '../../redux/contactsSelectors';
 import { Box, Typography } from '@mui/material';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from '../../components/Loader/Loader';
 
 const Contacts = () => {
   const isLoading = useSelector(isContactsLoading);

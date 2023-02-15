@@ -1,4 +1,4 @@
-import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
 import { Avatar, Box, Container, Typography } from '@mui/material';
 
 const Register = () => {
