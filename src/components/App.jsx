@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { lazy, useEffect } from 'react';
-import authorizationSelectors from '../redux/authorizationSelectors';
+import authorizationSelectors from '../reduxx/authorizationSelectors';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import PrivateRoutes from './PrivateRoutes';
 import PublicRoutes from './RestrictedRoutes';
 import { SharedLayout } from './SharedLayout/SharedLayout';
-import { refreshUser } from '../redux/authorizationOperation';
+import { refreshUser } from '../reduxx/authorizationOperation';
 
 const Login = lazy(() => import('../page/Login/Login'));
 const Register = lazy(() => import('../page/Register/Register'));

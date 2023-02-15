@@ -1,10 +1,10 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactList from '../../components/ContactList/ContactList';
-import { fetchContacts } from '../../redux/contactsOperation';
+import { fetchContacts } from '../../reduxx/contactsOperation';
 import { useEffect } from 'react';
 import Filter from '../../components/Filter/Filter';
-import { isContactsLoading, getContacts } from '../../redux/contactsSelectors';
+import { isContactsLoading, getContacts } from '../../reduxx/contactsSelectors';
 import { Box, Typography } from '@mui/material';
 import { Loader } from '../../components/Loader/Loader';
 

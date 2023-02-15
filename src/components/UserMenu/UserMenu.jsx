@@ -1,7 +1,7 @@
 import { Box, Button, Typography } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import authorizationSelectors from '../../redux/authorizationSelectors';
-import { userLogout } from '../../redux/authorizationOperation';
+import authorizationSelectors from '../../reduxx/authorizationSelectors';
+import { userLogout } from '../../reduxx/authorizationOperation';
 
 export const UserMenu = () => {
   const userEmail = useSelector(authorizationSelectors.getUserEmail);
