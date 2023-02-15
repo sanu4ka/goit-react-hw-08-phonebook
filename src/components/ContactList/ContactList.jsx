@@ -1,9 +1,10 @@
 import ContactItem from '../ContactItem/ContactItem';
 import css from './ContactList.module.css';
 import { useSelector } from 'react-redux';
+import contactsSelectors from '../../redux/contactsSelectors';
 
 const ContactList = () => {
-  const contacts = useSelector(state => state.contacts.items);
+  const contacts = useSelector(contactsSelectors.getContacts);
   const filter = useSelector(state => state.filter);
 
   function getFiltered() {
@@ -18,8 +19,8 @@ const ContactList = () => {
 
   return (
     <ul className={css.list}>
-      {filteredContacts.map(({ name, id, phone }) => (
-        <ContactItem key={id} contact={{ name, id, phone }} />
+      {filteredContacts.map(({ name, id, number }) => (
+        <ContactItem key={id} contact={{ name, id, number }} />
       ))}
     </ul>
   );

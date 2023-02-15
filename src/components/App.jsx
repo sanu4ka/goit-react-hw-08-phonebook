@@ -1,28 +1,61 @@
-import css from './App.module.css';
-import ContactForm from './ContactForm/ContactForm';
-import Filter from './Filter/Filter';
-import ContactList from './ContactList/ContactList';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from '../Redux/contactsOperation';
-import { Loader } from "./Loader/Loader";
+import { lazy, useEffect } from 'react';
+import authorizationSelectors from '../redux/authorizationSelectors';
+import { Navigate, Route, Routes } from 'react-router-dom';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import PrivateRoutes from 'components/PrivateRoutes';
+import PublicRoutes from 'components/RestrictedRoutes';
+import { SharedLayout } from './SharedLayout/SharedLayout';
+import { refreshUser } from '../redux/authorizationOperation';
+
+const Login = lazy(() => import('../page/Login/Login'));
+const Register = lazy(() => import('../page/Register/Register'));
+const Contacts = lazy(() => import('../page/Contacts/Contacts'));
 
 export default function App() {
   const dispatch = useDispatch();
-  const loadStatus = useSelector(state => state.contacts.isLoading);
+  const isLoading = useSelector(authorizationSelectors.isCurrentUserLoading);
 
   useEffect(() => {
-    dispatch(fetchContacts());
+    dispatch(refreshUser());
   }, [dispatch]);
 
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#7c588a',
+      },
+      secondary: {
+        main: '#369cac',
+      },
+    },
+  });
   return (
-    <div className={css.mainModule}>
-      <h1>Phonebook</h1>
-      <ContactForm />
-      <h2>Contacts</h2>
-      <Filter />
-      {loadStatus && <Loader />}
-      <ContactList />
-    </div>
+    <>
+      {!isLoading && (
+        <div>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Routes>
+              <Route path="/" element={<SharedLayout />}>
+                <Route index element={<Navigate to="login" />} />
+                <Route element={<PublicRoutes restricted />}>
+                  <Route path="login" element={<Login />} />
+                </Route>
+                <Route element={<PublicRoutes restricted />}>
+                  <Route path="register" element={<Register />} />
+                </Route>
+                <Route element={<PrivateRoutes />}>
+                  <Route path="contacts" element={<Contacts />} />
+                </Route>
+                <Route element={<PublicRoutes restricted />}>
+                  <Route path="*" element={<Login />} />
+                </Route>
+              </Route>
+            </Routes>
+          </ThemeProvider>
+        </div>
+      )}
+    </>
   );
 }
