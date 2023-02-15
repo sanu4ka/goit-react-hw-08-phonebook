@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { userSignup } from '../../reduxx/authorizationOperation';
+import { userSignup } from '../../redux/authorizationOperation';
 import { Box, Button, TextField } from '@mui/material';
 
 export const RegisterForm = () => {

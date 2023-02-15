@@ -1,19 +1,19 @@
-import css from './ContactItem.module.css';
-import { deleteContact } from '../../reduxx/contactsOperation';
+import { deleteContact } from '../../redux/contactsOperation';
 import { useDispatch } from 'react-redux';
+import { ListItem, ListItemText } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ContactItem = ({ contact: { id, name, number } }) => {
   const dispatch = useDispatch();
 
   return (
-    <li className={css.listItem} key={id}>
-      <p className={css.contact}>
-        {name}: <span className={css.number}> {number}</span>
-      </p>
-      <button type="button" onClick={() => dispatch(deleteContact(id))}>
-        Delete
-      </button>
-    </li>
+    <ListItem key={id}>
+      <ListItemText primary={name} secondary={number} sx={{ maxWidth: 320 }} />
+      <DeleteIcon
+        type="button"
+        onClick={() => dispatch(deleteContact(id))}
+      />
+          </ListItem>
   );
 };
 

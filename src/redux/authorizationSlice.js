@@ -13,13 +13,6 @@ const authorizationInitialState = {
   isLoading: false,
 };
 
-// const isPendingAction = action => {
-//   return action.type.endsWith('pending');
-// };
-// const handlePending = state => {
-//   state.isLoading = true;
-// };
-
 export const authorizationSlice = createSlice({
   name: 'authorization',
   initialState: authorizationInitialState,

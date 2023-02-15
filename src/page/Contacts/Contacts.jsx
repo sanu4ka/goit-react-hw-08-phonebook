@@ -1,16 +1,16 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import { useDispatch, useSelector } from 'react-redux';
 import ContactList from '../../components/ContactList/ContactList';
-import { fetchContacts } from '../../reduxx/contactsOperation';
+import { fetchContacts } from '../../redux/contactsOperation';
 import { useEffect } from 'react';
 import Filter from '../../components/Filter/Filter';
-import { isContactsLoading, getContacts } from '../../reduxx/contactsSelectors';
+import contactsSelectors from '../../redux/contactsSelectors';
 import { Box, Typography } from '@mui/material';
 import { Loader } from '../../components/Loader/Loader';
 
 const Contacts = () => {
-  const isLoading = useSelector(isContactsLoading);
-  const contacts = useSelector(getContacts);
+  const isLoading = useSelector(contactsSelectors.isContactsLoading);
+  const contacts = useSelector(contactsSelectors.getContacts);
 
   const dispatch = useDispatch();
 
@@ -43,10 +43,9 @@ const Contacts = () => {
       <Box
         sx={{
           mx: 4,
-          flexGrow: 1,
         }}
       >
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: "column"}}>
           <Typography variant="h5" component="p" sx={{ mx: 3 }}>
             Contacts
           </Typography>

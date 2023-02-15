@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { AppBar, Toolbar, Typography } from '@mui/material';
-import authorizationSelectors from '../../reduxx/authorizationSelectors';
+import authorizationSelectors from '../../redux/authorizationSelectors';
 import { Navigation } from '../Navigation/Navigation';
 import { UserMenu } from '../UserMenu/UserMenu';
 

@@ -1,7 +1,6 @@
-import css from './Filter.module.css';
 import { useDispatch } from 'react-redux';
-import { filteredContacts } from '../../reduxx/filterSlice';
-
+import { filteredContacts } from '../../redux/filterSlice';
+import { TextField, Box, Typography } from '@mui/material';
 const Filter = () => {
   const dispatch = useDispatch();
 
@@ -10,15 +9,25 @@ const Filter = () => {
   }
 
   return (
-    <div className={css.filter}>
-      <p className={css.title}>Find contacts by name</p>
-      <input
-        className={css.input}
-        type="text"
-        name="filter"
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center'
+      }}
+    >
+      <Typography variant="h6" component="p">
+        Find contacts by name
+      </Typography>
+      <TextField
         onChange={onChange}
+        margin="normal"
+        fullWidth
+        label="Name"
+        name="filter"
+        autoComplete="name"
+        autoFocus
       />
-    </div>
+    </Box>
   );
 };
 
