@@ -3,8 +3,8 @@ import { lazy, useEffect } from 'react';
 import authorizationSelectors from '../redux/authorizationSelectors';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
-import PrivateRoutes from 'components/PrivateRoutes';
-import PublicRoutes from 'components/RestrictedRoutes';
+import PrivateRoutes from './PrivateRoutes';
+import PublicRoutes from './RestrictedRoutes';
 import { SharedLayout } from './SharedLayout/SharedLayout';
 import { refreshUser } from '../redux/authorizationOperation';
 

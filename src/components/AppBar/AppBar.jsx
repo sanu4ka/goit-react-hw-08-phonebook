@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import authorizationSelectors from '../../redux/authorizationSelectors';
-import { Navigation } from 'components/Navigation/Navigation';
-import { UserMenu } from 'components/UserMenu/UserMenu';
+import { Navigation } from '../Navigation/Navigation';
+import { UserMenu } from '../UserMenu/UserMenu';
 
 export const ApplicationBar = () => {
   const isLoggedIn = useSelector(authorizationSelectors.isLoggedIn);

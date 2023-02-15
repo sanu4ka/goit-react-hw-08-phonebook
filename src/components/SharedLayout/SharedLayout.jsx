@@ -1,8 +1,8 @@
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from '../Loader/Loader';
 import { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Box } from '@mui/material';
-import { ApplicationBar } from 'components/AppBar/AppBar';
+import { ApplicationBar } from '../AppBar/AppBar';
 
 export const SharedLayout = () => {
   return (
